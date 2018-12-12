@@ -5,7 +5,9 @@
 ```javascript
 import PIPTester from 'piptester'
 
+// create a 3 sides polygon(triangle) tester
 const tester = new PIPTester({
+    // polygon points
     points: [{x: 0, y: 0}, {x: 5, y: 5}, {x: 10, y: 0}]
 })
 
