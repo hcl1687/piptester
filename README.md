@@ -55,7 +55,7 @@ Tanks for [Mecki](https://stackoverflow.com/users/15809/mecki)'s fantastic answe
 | Param                | Type                | Description                                 |
 | ---------------------| ------------------- | ------------------------------------------- |
 | points           | <code>array</code> | the polygon's vertex.
-| mode           | <code>string</code> | the mode used to test. Mode ('webgl', 'ray'). default: webgl
+| mode           | <code>string</code> | the mode used to test. options: 'webgl' or 'ray'. default: webgl.
 
 #### test(point) => <code>boolean</code>
 test if a point lies inside or outside the polygon.
