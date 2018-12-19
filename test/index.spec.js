@@ -34,4 +34,15 @@ describe('Base test', function () {
 
     expect(tester.test({x: 0, y: 1})).to.equal(false)
   })
+
+  it('should provide 3 points at least', function () {
+    try {
+      const tester = new PIPTester({
+        points: [{x: 0, y: 0}, {x: 5, y: 5}]
+      })
+      tester.test({x: 0, y: 1})
+    } catch (e) {
+      expect(e.message).to.equal('make sure to provide 3 points at least.')
+    }
+  })
 })

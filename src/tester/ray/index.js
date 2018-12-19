@@ -15,6 +15,12 @@ class RayCastingTester {
     }
     const testRay = this._createSide(startPoint, point)
 
+    // is on the side
+    const ret = this.sides.some(side => this._isOnTheSide(point, side))
+    if (ret) {
+      return true
+    }
+
     let intersections = 0
     this.sides.forEach(side => {
       if (this._isIntersect(testRay, side)) {
@@ -74,6 +80,11 @@ class RayCastingTester {
     }
 
     return YES
+  }
+
+  _isOnTheSide (p, s1) {
+    const d = (s1.a * p.x) + (s1.b * p.y) + s1.c
+    return d === 0 && ((p.x - s1.sp.x) * (p.x - s1.ep.x) <= 0)
   }
 }
 

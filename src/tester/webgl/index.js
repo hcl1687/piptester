@@ -21,11 +21,6 @@ class WebGLTester {
     this.boundingRect = opts.boundingRect
     this.vertices = []
 
-    if (this.points.length < 3) {
-      webGLWarn('make sure to provide 3 points at least.')
-      return
-    }
-
     this.width = this.boundingRect.xMax - this.boundingRect.xMin
     this.height = this.boundingRect.yMax - this.boundingRect.yMin
 

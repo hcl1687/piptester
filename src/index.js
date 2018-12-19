@@ -18,6 +18,10 @@ class PIPTester {
       yMax: 0
     }
 
+    if (this.points.length < 3) {
+      throw new Error('make sure to provide 3 points at least.')
+    }
+
     this._setBoundingRect()
     const TESTER = TESTERS[this.mode]
     if (TESTER) {
@@ -51,9 +55,19 @@ class PIPTester {
     return !(point.x < xMin || point.x > xMax || point.y < yMin || point.y > yMax)
   }
 
+  vertexTest (point) {
+    return this.points.some(item => (item.x === point.x && item.y === point.y))
+  }
+
   test (point) {
+    // if it's outside of the bounding Rectangular, return false
     if (!this.boundingRectTest(point)) {
       return false
+    }
+
+    // if it's the polygon's vertex, return true
+    if (this.vertexTest(point)) {
+      return true
     }
 
     if (this.tester) {
